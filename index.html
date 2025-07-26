@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PestNfix - Your Trusted Partner for a Pest-Free & Perfect Space</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN for easy use of icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom font for a clean look */
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f5f5f4; /* Stone-100 - Light background from logo palette */
+            color: #0f172a; /* Slate-900 - Dark text color from logo palette */
+        }
+        /* Custom scrollbar for a polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a8a8a8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        /* Custom pattern for hero section - optional, keeping for now */
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-fadeIn-delay-1 { animation-delay: 0.2s; }
+        .animate-fadeIn-delay-2 { animation-delay: 0.4s; }
+        .animate-fadeIn-delay-3 { animation-delay: 0.6s; }
+        .animate-fadeIn-delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-white shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <!-- PestNfix Logo -->
+                <img src="assets/pestnfix-logo.png" alt="PestNfix Logo" class="h-10">
+                <!-- Company Name (can be removed if logo has text) -->
+                <span class="text-2xl font-bold text-slate-900 rounded-md p-2 hover:bg-stone-50 transition duration-300">PestNfix</span>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="text-slate-700 hover:text-amber-600 font-medium transition duration-300">Home</a>
+                <a href="#about" class="text-slate-700 hover:text-amber-600 font-medium transition duration-300">About Us</a>
+                <a href="#services" class="text-slate-700 hover:text-amber-600 font-medium transition duration-300">Services</a>
+                
+                <a href="#contact" class="text-slate-700 hover:text-amber-600 font-medium transition duration-300">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-700 hover:text-amber-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-white bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-slate-700 hover:text-amber-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="#home" class="text-2xl text-slate-700 hover:text-amber-600 font-medium transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="#about" class="text-2xl text-slate-700 hover:text-amber-600 font-medium transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+            <a href="#services" class="text-2xl text-slate-700 hover:text-amber-600 font-medium transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a href="#contact" class="text-2xl text-slate-700 hover:text-amber-600 font-medium transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-gradient-to-r from-amber-600 to-orange-700 text-white py-24 md:py-32 overflow-hidden rounded-b-lg shadow-xl">
+            <div class="absolute inset-0 bg-pattern opacity-10"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 opacity-0 animate-fadeIn animate-fadeIn-delay-1">
+                    Your Trusted Partner for a <span class="text-stone-100">Pest-Free</span> & <span class="text-stone-100">Perfect Space</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-0 animate-fadeIn animate-fadeIn-delay-2">
+                    PestNfix provides comprehensive pest control and expert general maintenance solutions for banks, apartments, and commercial buildings.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fadeIn animate-fadeIn-delay-3">
+                    <a href="#contact" class="bg-white text-amber-700 hover:bg-amber-100 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transform hover:scale-105 transition duration-300">
+                        Get a Free Quote
+                    </a>
+                    <a href="#services" class="border border-white text-white hover:bg-white hover:text-amber-700 px-8 py-3 rounded-full text-lg font-semibold shadow-lg transform hover:scale-105 transition duration-300">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 md:py-24 bg-stone-100">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">About <span class="text-amber-600">PestNfix</span></h2>
+                    <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+                        At PestNfix, we are committed to creating safe, healthy, and functional environments for our clients. With years of experience, we specialize in offering top-tier pest management and reliable property maintenance services tailored for commercial and residential buildings.
+                    </p>
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        Our team of certified professionals uses the latest techniques and eco-friendly solutions to ensure effective results with minimal disruption. We pride ourselves on our meticulous approach, prompt service, and unwavering dedication to customer satisfaction. From troublesome pests to essential repairs, we've got you covered.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <!-- Placeholder image updated with logo's dark blue background and orange text -->
+                    <img src="assets/ai home.png" alt="PestNfix Team Working" class="rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24 bg-stone-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our <span class="text-amber-600">Expert Services</span></h2>
+                <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+                    We offer a comprehensive range of solutions to ensure your property remains pristine and operational.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1: Pest Control -->
+                    <div class="bg-stone-100 p-8 rounded-xl shadow-lg border border-stone-200 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bug mx-auto"><path d="M6 10h4l2-4h3.5a4.5 4.5 0 1 1 0 9H12l-2-4H6a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2Z"/><path d="M7 20v-2"/><path d="M13 19v-2"/><path d="M16 4v-2"/><path d="M19 17v-2"/><path d="M20 9h-2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-3">Pest Control Solutions</h3>
+                        <ul class="text-slate-600 text-left list-disc list-inside space-y-2">
+                            <li>Termite Treatment & Prevention</li>
+                            <li>Rodent Extermination & Proofing</li>
+                            <li>Cockroach & Ant Control</li>
+                            <li>Mosquito & Fly Management</li>
+                            <li>Bed Bug Eradication</li>
+                            <li>Bird Netting & Control</li>
+                        </ul>
+                    </div>
+                    <!-- Service Card 2: General Repairs -->
+                    <div class="bg-stone-100 p-8 rounded-xl shadow-lg border border-stone-200 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench mx-auto"><path d="M.9 4.3a2.1 2.1 0 0 1 2.9 2.9L8.6 12l-2.1 2.1 2.9 2.9L12 15.4l2.1 2.1 2.9-2.9 2.1 2.1.9.9A2.1 2.1 0 0 1 18.7 23l-2.9-2.9L12 15.4l-2.1 2.1-2.9-2.9L8.6 12l-4.3-4.3A2.1 2.1 0 0 1 .9 4.3Z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-3">General Maintenance & Repairs</h3>
+                        <ul class="text-slate-600 text-left list-disc list-inside space-y-2">
+                            <li>Plumbing Repairs & Installations</li>
+                            <li>Electrical Troubleshooting & Fixes</li>
+                            <li>Minor Structural & Wall Repairs</li>
+                            <li>Leakage Detection & Waterproofing</li>
+                            <li>Painting & Renovation Works</li>
+                            <li>Fixture Installation & Replacement</li>
+                        </ul>
+                    </div>
+                    <!-- Service Card 3: Specialized Cleaning -->
+                    <div class="bg-stone-100 p-8 rounded-xl shadow-lg border border-stone-200 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-soap mx-auto"><path d="M12 21a4 4 0 0 0 4-4c0-1.2-0.8-2.5-2-3-1.6-0.8-3.2-1.6-4-2c-1.2-0.6-2-1.8-2-3a4 4 0 0 1 4-4c2.2 0 4 1.8 4 4"/><path d="M12 21c-2.2 0-4-1.8-4-4c0-1.2 0.8-2.5 2-3c1.6-0.8 3.2-1.6 4-2c1.2-0.6 2-1.8 2-3a4 4 0 0 0-4-4C9.8 4 8 5.8 8 8"/><path d="M10 12c-1.2-0.6-2-1.8-2-3a4 4 0 0 1 4-4c2.2 0 4 1.8 4 4c0 1.2-0.8 2.5-2 3c-1.6 0.8-3.2 1.6-4 2c-1.2 0.6-2 1.8-2 3a4 4 0 0 0 4 4c2.2 0 4-1.8 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-3">Post-Pest Cleaning & Sanitization</h3>
+                        <ul class="text-slate-600 text-left list-disc list-inside space-y-2">
+                            <li>Deep Cleaning after Pest Eradication</li>
+                            <li>Sanitization of Affected Areas</li>
+                            <li>Odor Removal Services</li>
+                            <li>Disinfection for Health & Safety</li>
+                            <li>Waste Removal (Pest Related)</li>
+                            <li>Preventive Maintenance Checks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="why-choose-us" class="py-16 md:py-24 bg-stone-100">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why <span class="text-amber-600">Choose PestNfix</span>?</h2>
+                <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+                    We are dedicated to providing unparalleled service and lasting results.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="flex flex-col items-center p-6 bg-stone-200 rounded-xl shadow-md border border-stone-300 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-check"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Certified Experts</h3>
+                        <p class="text-slate-600 text-center">Our team comprises highly trained and certified professionals.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="flex flex-col items-center p-6 bg-stone-200 rounded-xl shadow-md border border-stone-300 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 18.5 4c1.5-.4 2 1.3 2 2.5s-.5 1-2 1.5c-1.4.4-2.5.3-3.5 0C11.5 9.4 10 12 9.9 13.9A7 7 0 0 1 11 20Z"/><path d="M2 21c.5-.5 1-1 1.5-1.5 1-.9 3-2 4.5-3.5 1.5-1.5 2.5-3.1 3.5-5.1c1-2 1.5-4.5 1.5-6.5C15 5.5 12 2 12 2s-3 1.5-4 2.5c-1 .9-2 2-2.5 2.5-.5.5-1 1-1.5 1.5L2 21Z"/><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 18.5 4c1.5-.4 2 1.3 2 2.5s-.5 1-2 1.5c-1.4.4-2.5.3-3.5 0C11.5 9.4 10 12 9.9 13.9A7 7 0 0 1 11 20Z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Eco-Friendly</h3>
+                        <p class="text-slate-600 text-center">We prioritize safe, sustainable, and environmentally conscious methods.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="flex flex-col items-center p-6 bg-stone-200 rounded-xl shadow-md border border-stone-300 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-timer"><line x1="10" x2="14" y1="2" y2="2"/><path d="M12 14v-4"/><path d="M4 13a8 8 0 0 0 8 8 8 8 0 0 0 8-8c0-2.3-1.1-4.2-2.9-5.7"/><path d="M18.8 8.8l.2-.2M7 17l-.2.2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Timely Service</h3>
+                        <p class="text-slate-600 text-center">Prompt and efficient execution to minimize disruption to your operations.</p>
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="flex flex-col items-center p-6 bg-stone-200 rounded-xl shadow-md border border-stone-300 transform hover:scale-105 transition duration-300">
+                        <div class="text-amber-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-heart"><path d="M11 13a2 2 0 1 0 0-4c-.5 0-1 .2-1.4.6C9.4 9.8 9 10.4 9 11c0 .6.4 1.2.6 1.4.4.4.9.6 1.4.6Z"/><path d="M18.8 8c.2-.5.5-.9.9-1.3L22 3.5a2.1 2.1 0 0 0-1-3.6 2.1 2.1 0 0 0-2.2 0c-.5.3-.9.7-1.3.9L14.3 2.8c-.4.4-.8.6-1.3.6H9.2C5.4 3.4 2 5.3 2 9v11a2 2 0 0 0 2 2h3v-7c0-2.2 1.8-4 4-4h.3c.7 0 1.4-.2 2-.7l.4-.4c1.3-1.2 3-2.1 4.7-2.1Z"/><path d="m14 12 1.4 1.4a3.5 3.5 0 0 0 5-5L19 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-900 mb-2">Customer Satisfaction</h3>
+                        <p class="text-slate-600 text-center">Your peace of mind is our priority; we guarantee quality results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Partners Section (Trust Badges) -->
+        <section id="partners" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Trusted By <span class="text-amber-600">Leading Businesses</span></h2>
+                <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+                    We proudly serve a diverse range of clients, from financial institutions to large residential complexes.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center">
+                    <!-- Partner Logo 1 -->
+                    <div class="p-4 bg-stone-100 rounded-lg shadow-md flex items-center justify-center h-24 transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/120x60/d4d4d4/6b6b6b?text=Bank+Logo" alt="Bank Logo" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <!-- Partner Logo 2 -->
+                    <div class="p-4 bg-stone-100 rounded-lg shadow-md flex items-center justify-center h-24 transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/120x60/d4d4d4/6b6b6b?text=Apartment+Complex" alt="Apartment Complex Logo" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <!-- Partner Logo 3 -->
+                    <div class="p-4 bg-stone-100 rounded-lg shadow-md flex items-center justify-center h-24 transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/120x60/d4d4d4/6b6b6b?text=Commercial+Building" alt="Commercial Building Logo" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <!-- Partner Logo 4 -->
+                    <div class="p-4 bg-stone-100 rounded-lg shadow-md flex items-center justify-center h-24 transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/120x60/d4d4d4/6b6b6b?text=Hotel+Chain" alt="Hotel Chain Logo" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <!-- Partner Logo 5 -->
+                    <div class="p-4 bg-stone-100 rounded-lg shadow-md flex items-center justify-center h-24 transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/120x60/d4d4d4/6b6b6b?text=Healthcare+Facility" alt="Healthcare Facility Logo" class="max-h-full max-w-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-stone-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What Our <span class="text-amber-600">Clients Say</span></h2>
+                <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+                    Hear from those who trust PestNfix for a pest-free and perfect space.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonial Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200 text-left">
+                        <div class="flex text-amber-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <p class="text-slate-700 italic mb-4">"PestNfix transformed our office building! Their pest control service was incredibly effective, and the repairs they did were seamless. Highly recommend their professional team."</p>
+                        <p class="font-semibold text-slate-900">- Mrs. Sharma</p>
+                        <p class="text-sm text-slate-600">Property Manager, Corporate Bank</p>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-stone-200 text-left">
+                        <div class="flex text-amber-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-amber-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-half fill-amber-500"><path d="M12 17.77 5.82 21.02 7 14.14 2 9.27l6.91-1.01L12 2v15.77Z"/></svg>
+                        </div>
+                        <p class="text-slate-700 italic mb-4">"We had persistent issues with rodents in our apartment complex. PestNfix solved it quickly and efficiently, and their team was very courteous. Their waterproofing services also saved us a lot of headaches!"</p>
+                        <p class="font-semibold text-slate-900">- Mr. Kumar</p>
+                        <p class="text-sm text-slate-600">Resident Welfare Association, Elite Residency</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action/Contact Section -->
+        <section id="contact" class="bg-slate-900 text-white py-16 md:py-24 rounded-t-lg shadow-xl">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Experience the PestNfix Difference?</h2>
+                <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                    Contact us today for a free consultation or to request our services. We're here to help!
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-start gap-8">
+                    <!-- Contact Form -->
+                    <form id="contact-form" class="w-full max-w-md bg-white p-8 rounded-xl shadow-lg text-slate-900 md:w-1/2">
+                        <div class="mb-5 text-left">
+                            <label for="name" class="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-200" placeholder="Your Name" required>
+                            <p class="text-red-500 text-sm mt-1 hidden" id="name-error">Name is required.</p>
+                        </div>
+                        <div class="mb-5 text-left">
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-200" placeholder="your@email.com" required>
+                            <p class="text-red-500 text-sm mt-1 hidden" id="email-error">Please enter a valid email address.</p>
+                        </div>
+                        <div class="mb-6 text-left">
+                            <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-200" placeholder="Tell us about your needs..." required></textarea>
+                            <p class="text-red-500 text-sm mt-1 hidden" id="message-error">Message is required.</p>
+                        </div>
+                        <button type="submit" class="w-full bg-amber-600 text-white font-bold py-3 px-6 rounded-full hover:bg-amber-700 shadow-md transform hover:scale-105 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <!-- Google Map Embed -->
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp/Call Now Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col space-y-3 z-[1000]">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919876543210" target="_blank" class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-110 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <span class="sr-only">WhatsApp Us</span>
+        </a>
+        <!-- Call Now Button -->
+        <a href="tel:+919876543210" class="bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 transform hover:scale-110 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/><path d="M14.05 2a1.8 1.8 0 0 1 .5 3.6m-3.5 0a1.8 1.8 0 0 1 0-3.6"/></svg>
+            <span class="sr-only">Call Now</span>
+        </a>
+    </div>
+
+    <!-- Message Box for Form Submission -->
+    <div id="form-message-box" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4 hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center">
+            <h3 class="text-xl font-semibold text-slate-900 mb-4"></h3>
+            <p class="text-slate-600 mb-6"></p>
+            <button id="close-message-box" class="bg-amber-600 text-white font-bold py-2 px-5 rounded-full hover:bg-amber-700 transition duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-stone-300 py-16">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">PestNfix</h3>
+                <p class="text-sm">Your reliable partner for comprehensive pest control and expert fixing solutions.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="hover:text-amber-400 transition duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-amber-400 transition duration-300">About Us</a></li>
+                    <li><a href="#services" class="hover:text-amber-400 transition duration-300">Services</a></li>
+                    <li><a href="#why-choose-us" class="hover:text-amber-400 transition duration-300">Why Choose Us</a></li>
+                    <li><a href="#partners" class="hover:text-amber-400 transition duration-300">Our Partners</a></li>
+                    <li><a href="#testimonials" class="hover:text-amber-400 transition duration-300">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-amber-400 transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Contact Info</h3>
+                <p class="text-sm">Apex Mall, lal Kothi, Jaipur</p>
+                <p class="text-sm">Email: pestnfix@gmail.com</p>
+                <p class="text-sm">Phone: +91 8118827002</p>
+            </div>
+        </div>
+        <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-500 text-sm">
+            &copy; <span id="current-year"></span> PestNfix. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Get current year for footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Hide mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Validation and Submission
+        const contactForm = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const messageError = document.getElementById('message-error');
+        const formMessageBox = document.getElementById('form-message-box');
+        const messageBoxTitle = formMessageBox.querySelector('h3');
+        const messageBoxContent = formMessageBox.querySelector('p');
+        const closeMessageBoxButton = document.getElementById('close-message-box');
+
+        // Function to show a custom message box
+        function showMessageBox(title, message, isSuccess = true) {
+            messageBoxTitle.textContent = title;
+            messageBoxContent.textContent = message;
+            formMessageBox.classList.remove('hidden');
+            if (isSuccess) {
+                messageBoxTitle.classList.remove('text-red-600');
+                messageBoxTitle.classList.add('text-slate-900');
+            } else {
+                messageBoxTitle.classList.remove('text-slate-900');
+                messageBoxTitle.classList.add('text-red-600');
+            }
+        }
+
+        // Close message box event listener
+        closeMessageBoxButton.addEventListener('click', () => {
+            formMessageBox.classList.add('hidden');
+        });
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            let isValid = true;
+
+            // Name validation
+            if (nameInput.value.trim() === '') {
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailInput.value.trim() === '' || !emailPattern.test(emailInput.value)) {
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                emailError.classList.add('hidden');
+            }
+
+            // Message validation
+            if (messageInput.value.trim() === '') {
+                messageError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                messageError.classList.add('hidden');
+            }
+
+            if (isValid) {
+                // Simulate form submission
+                console.log('Form Submitted!', {
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    message: messageInput.value
+                });
+
+                showMessageBox("Message Sent!", "Thank you for your inquiry. We will get back to you shortly.", true);
+                
+                // Clear the form fields
+                contactForm.reset();
+            } else {
+                showMessageBox("Validation Error", "Please fill in all required fields correctly.", false);
+            }
+        });
+    </script>
+</body>
+</html>
